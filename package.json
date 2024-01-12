@@ -1,0 +1,29 @@
+{
+  "name": "hardhat-simplestorage",
+  "version": "1.0.0",
+  "description": "HardhatProject",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gponti-s/hardhat-SimpleStorage.git"
+  },
+  "author": "Guilherme Ponti Seletti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gponti-s/hardhat-SimpleStorage/issues"
+  },
+  "homepage": "https://github.com/gponti-s/hardhat-SimpleStorage#readme",
+  "dependencies": {
+    "@influxdata/influxdb-client": "^1.33.2",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.1"
+  },
+  "devDependencies": {
+    "hardhat": "^2.19.4"
+  }
+}
