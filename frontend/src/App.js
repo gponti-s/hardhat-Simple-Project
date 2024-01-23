@@ -14,11 +14,13 @@ import { Viewport } from './Components/Viewport';
 function App() {
   return (
     <div className="app-container">
+      <div className="head-container">
         <Appbar />
+      </div>
+      <div className="content-container">
         <Sidebar />
-        <div className="content-container">
-          <Viewport />
-        </div>
+        <Viewport />
+      </div>
     </div>
       //<AllRoutes/>
   );
