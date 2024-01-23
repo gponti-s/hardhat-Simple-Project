@@ -1,11 +1,12 @@
 //import React, {useState} from 'react';
 //import {ethers} from 'ethers'
 //import Lock from './artifacts/contracts/Lock.sol/Lock.json';
-//import {AllRoutes} from './AllRoutes';
+import {AllRoutes} from './Components/AllRoutes';
 import './App.css';
 import { Appbar } from './Components/Appbar';
 import { Sidebar } from './Components/Sidebar';
 import { Viewport } from './Components/Viewport';
+import { BrowserRouter } from 'react-router-dom';
 
 
 //const lockAddress = ""
@@ -13,16 +14,18 @@ import { Viewport } from './Components/Viewport';
 
 function App() {
   return (
-    <div className="app-container">
-      <div className="head-container">
-        <Appbar />
+    <BrowserRouter>
+      <div className="app-container">
+        <div className="head-container">
+          <Appbar />
+        </div>
+        <div className="content-container">
+          <Sidebar />
+          {/* <Viewport /> */}
+          <AllRoutes/>
+        </div>
       </div>
-      <div className="content-container">
-        <Sidebar />
-        <Viewport />
-      </div>
-    </div>
-      //<AllRoutes/>
+    </BrowserRouter>
   );
 }
 

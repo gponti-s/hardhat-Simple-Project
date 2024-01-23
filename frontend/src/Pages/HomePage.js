@@ -1,5 +1,7 @@
 export const HomePage = () => {
     return (
-        <h1>HomePage</h1>
+        <div className="viewport">
+            <h1 >HomePage</h1>
+        </div>
     );
 }

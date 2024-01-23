@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
     return(
-        <div className="col-2 sidebar">
-            Sidebar Content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        <div className="sidebar">
+            <img className="circular-image" src="/images/photo.jpg" width="150" height="150"/>
+            <p></p>
+            <Link to="/about">About</Link>
+            <p></p>
+            <a hrf="/about">Token</a>
         </div>
     );
 }
