@@ -10,6 +10,8 @@
   text-align:center;
   background-color: gray;
   padding: 15px;
+  position: sticky;
+  top: 0;
 }
 
 .content-container {
@@ -18,18 +20,52 @@
   grid-template-columns: 200px repeat(3, 1fr);
 }
 
+.mainview {
+  grid-column: span 3;
+  text-align: justify;
+  background-color: lightcoral;
+  padding:15px;
+}
+
+/* Sidebar Nav Start*/
+
 .sidebar {
   text-align: justify;
   background: lightgray;
   color: black;
   padding: 15px;
+  /* display: none; */
 }
-.viewport {
-  grid-column: span 3;
-  
-  text-align: justify;
-  background-color: whitesmoke;
-  padding:15px;
+
+.visible {
+  width: 250px; /* Adjust the width when the sidebar is visible */
+}
+
+.active {
+  background-color: lightblue;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul{
+  list-style: none;
+}
+
+nav ul li{
+  list-style: none;
+  background-color: red;
+}
+nav ul li a{
+  display:block;
+  text-decoration: none;
+  color: blue;
+  padding: 0.5rem;
+}
+
+nav ul li a:not(.active):hover{
+  background-color: bisque;
 }
 
 .circular-image{
@@ -39,3 +75,4 @@
   -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
 }
+/* Sidebar Nav End*/

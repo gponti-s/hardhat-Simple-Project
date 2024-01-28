@@ -1,28 +1,33 @@
-//import React, {useState} from 'react';
+import React, {useState} from 'react';
 //import {ethers} from 'ethers'
 //import Lock from './artifacts/contracts/Lock.sol/Lock.json';
-import {AllRoutes} from './Components/AllRoutes';
-import './App.css';
-import { Appbar } from './Components/Appbar';
-import { Sidebar } from './Components/Sidebar';
-import { Viewport } from './Components/Viewport';
-import { BrowserRouter } from 'react-router-dom';
-
-
-//const lockAddress = ""
+import { AllRoutes } from "./components/AllRoutes";
+import "./App.css";
+import Appbar from './components/Appbar';
+import Sidebar from './components/Sidebar';
+import { BrowserRouter } from "react-router-dom";
+import ListGroup from "./components/ListGroup";
 
 
 function App() {
+  const [isMenuVisible, setMenuVisible] = useState(false);
+
+  function toggleMenu(){
+      console.log("click")
+      setMenuVisible(!isMenuVisible);
+      console.log(isMenuVisible);
+  }
+
   return (
+    // <ListGroup/>
     <BrowserRouter>
       <div className="app-container">
         <div className="head-container">
-          <Appbar />
+          <Appbar toggleMenu={toggleMenu} />
         </div>
         <div className="content-container">
-          <Sidebar />
-          {/* <Viewport /> */}
-          <AllRoutes/>
+          <Sidebar isMenuVisible={isMenuVisible}/>
+          <AllRoutes />
         </div>
       </div>
     </BrowserRouter>
