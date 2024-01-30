@@ -1,14 +1,13 @@
 import { Routes, Route} from 'react-router-dom';
-import { HomePage } from '../pages/HomePage';
-import { AboutPage } from '../pages/AboutPage';
 
-export const AllRoutes = () => {
+export const AllRoutes = ({allRoutes}) => {
 
     return(
         <div className='mainview'>
             <Routes>
-                <Route path='/' element={<HomePage/>} />
-                <Route path='/about' element={<AboutPage/>} />
+            {allRoutes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
             </Routes>
         </div>
     );

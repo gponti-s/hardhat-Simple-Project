@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
 
-function Sidebar({isMenuVisible}) {
+function Sidebar() {
   return (
-    <div className={`sidebar ${isMenuVisible ? "visible" : ""}`}>
+    <div className="sidebar">
       <img
         className="circular-image"
         alt="user"

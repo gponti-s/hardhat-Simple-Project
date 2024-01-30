@@ -1,7 +1,7 @@
-
+/*
 .app-container{
   display: grid;
-  grid-template-columns: 1fr; /* Single column for the sidebar and viewport */
+  grid-template-columns: 1fr; 
   grid-template-rows: 50px;
   height: 100Vh;
 }
@@ -27,18 +27,16 @@
   padding:15px;
 }
 
-/* Sidebar Nav Start*/
 
 .sidebar {
   text-align: justify;
   background: lightgray;
   color: black;
   padding: 15px;
-  /* display: none; */
 }
 
 .visible {
-  width: 250px; /* Adjust the width when the sidebar is visible */
+  width: 250px;
 }
 
 .active {
@@ -75,4 +73,4 @@ nav ul li a:not(.active):hover{
   -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
 }
-/* Sidebar Nav End*/
+*/
