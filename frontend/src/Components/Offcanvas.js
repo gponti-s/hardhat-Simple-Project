@@ -2,7 +2,7 @@ import ListGroup from "./ListGroup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Offcanvas({toggleMenu}) {
+function Offcanvas({toggleMenu, allRoutes}) {
   const [selectedItem, setSelectedItem] = useState(" ");
   const navigate = useNavigate();
 
@@ -10,9 +10,13 @@ function Offcanvas({toggleMenu}) {
   function handleClickItem(item){
     setSelectedItem(item);
     console.log(item);
+    if(item === "About"){ // TO DO: refactor this condition
+      item = " ";
+    }
     const path = `/${item.toLowerCase()}`;
     navigate(path);
     toggleMenu();
+    console.log(allRoutes);
   }
 
   return (
@@ -33,7 +37,7 @@ function Offcanvas({toggleMenu}) {
       </div>
       <div class="offcanvas-body">
         <ListGroup title={"Guilherme Seletti"} subtitle={"Portifolio"} items={["About", "Articles"]} handleClickItem={handleClickItem}/>
-        <p>Place offcanvas content here.</p>
+        {/* <p>Place offcanvas content here.</p> */}
       </div>
     </div>
   );

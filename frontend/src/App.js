@@ -7,21 +7,24 @@ import { BrowserRouter } from "react-router-dom";
 import { AboutPage } from "./pages/AboutPage";
 import { ArticlesPage } from "./pages/ArticlesPage";
 
+
 function App() {
   const allRoutes = [
-    { path: '/', element: <AboutPage /> },
-    { path: '/articles', element: <ArticlesPage /> },
+    { name: 'About', path: '/', element: <AboutPage /> },
+    { name: 'Articles', path: '/articles', element: <ArticlesPage /> },
   ];
 
   return (
     <BrowserRouter>
       <div className="app-container">
         <div className="head-container">
-          <Navbar />
+        <Navbar allRoutes={allRoutes}/>
         </div>
+        <div className="content-container bg-light-subtle" style={{padding:"70px"} }>
         <AllRoutes
         allRoutes={allRoutes}
         />
+        </div>
       </div>
     </BrowserRouter>
   );

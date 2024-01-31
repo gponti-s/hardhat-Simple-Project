@@ -7,10 +7,10 @@ function ListGroup({title, subtitle, items, handleClickItem}) {
   //   const handleClick = (event) => console.log(event);
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  function handleClick(item){
-    setSelectedIndex(item);
-    console.log(item);
-  }
+  // function handleClick(item){
+  //   setSelectedIndex(item);
+  //   console.log(item);
+  // }
 
   return (
     <>
@@ -31,7 +31,7 @@ function ListGroup({title, subtitle, items, handleClickItem}) {
             {item}
           </li>
         ))}
-        <button onClick={handleClick}></button>
+        {/* <button onClick={handleClick}></button> */}
       </ul>
     </>
   );
