@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 //import {ethers} from 'ethers'
 //import Lock from './artifacts/contracts/Lock.sol/Lock.json';
 import { AllRoutes } from "./components/AllRoutes";
@@ -13,14 +13,16 @@ function App() {
     { name: 'About', path: '/', element: <AboutPage /> },
     { name: 'Articles', path: '/articles', element: <ArticlesPage /> },
   ];
+  const [isMenuVisible, setMenuVisible] = useState(false);
 
   return (
     <BrowserRouter>
       <div className="app-container">
         <div className="head-container">
-        <Navbar allRoutes={allRoutes}/>
+        <Navbar allRoutes={allRoutes} isMenuVisible={isMenuVisible} setMenuVisible={setMenuVisible}/>
         </div>
-        <div className="content-container bg-light-subtle" style={{padding:"70px"} }>
+        <div className={isMenuVisible === false ? "content-container bg-body" : "content-container bg-dark bg-opacity-50"}
+        style={{padding:"70px",  height:"100vh"} }>
         <AllRoutes
         allRoutes={allRoutes}
         />

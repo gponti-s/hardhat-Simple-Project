@@ -1,11 +1,12 @@
 import ListGroup from "./ListGroup";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Offcanvas({ toggleMenu, allRoutes }) {
   const [selectedItem, setSelectedItem] = useState("");
   const navigate = useNavigate();
   const routeNames = allRoutes.map((route) => route.name);
+  let menuRef = useRef();
 
   useEffect(() => {
     const activeRoute = allRoutes.find(
@@ -14,6 +15,20 @@ function Offcanvas({ toggleMenu, allRoutes }) {
     const initialSelectedItem = activeRoute ? activeRoute.name : "";
     setSelectedItem(initialSelectedItem);
   }, [allRoutes]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && event && !menuRef.current.contains(event.target)) {
+        toggleMenu();
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   function handleClickItem(item) {
     const route = allRoutes.find((route) => route.name === item);
@@ -30,6 +45,7 @@ function Offcanvas({ toggleMenu, allRoutes }) {
       tabindex="-1"
       id="offcanvasDark"
       aria-labelledby="offcanvasDarkLabel"
+      ref={menuRef}
     >
       <div className="offcanvas-header">
         <button
