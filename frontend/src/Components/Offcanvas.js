@@ -1,42 +1,54 @@
 import ListGroup from "./ListGroup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Offcanvas({toggleMenu, allRoutes}) {
-  const [selectedItem, setSelectedItem] = useState(" ");
+function Offcanvas({ toggleMenu, allRoutes }) {
+  const [selectedItem, setSelectedItem] = useState("");
   const navigate = useNavigate();
+  const routeNames = allRoutes.map((route) => route.name);
 
+  useEffect(() => {
+    const activeRoute = allRoutes.find(
+      (route) => window.location.pathname === route.path
+    );
+    const initialSelectedItem = activeRoute ? activeRoute.name : "";
+    setSelectedItem(initialSelectedItem);
+  }, [allRoutes]);
 
-  function handleClickItem(item){
-    setSelectedItem(item);
-    console.log(item);
-    if(item === "About"){ // TO DO: refactor this condition
-      item = " ";
+  function handleClickItem(item) {
+    const route = allRoutes.find((route) => route.name === item);
+    if (route) {
+      navigate(route.path);
     }
-    const path = `/${item.toLowerCase()}`;
-    navigate(path);
     toggleMenu();
-    console.log(allRoutes);
+    setSelectedItem(item);
   }
 
   return (
     <div
-      class="offcanvas offcanvas-start show text-bg-dark"
+      className="offcanvas offcanvas-start show text-bg-dark"
       tabindex="-1"
       id="offcanvasDark"
       aria-labelledby="offcanvasDarkLabel"
     >
-      <div class="offcanvas-header">
+      <div className="offcanvas-header">
         <button
           type="button"
-          class="btn-close btn-close-white"
+          className="btn-close btn-close-white"
           data-bs-dismiss="offcanvasDark"
           aria-label="Close"
           onClick={toggleMenu}
         ></button>
       </div>
-      <div class="offcanvas-body">
-        <ListGroup title={"Guilherme Seletti"} subtitle={"Portifolio"} items={["About", "Articles"]} handleClickItem={handleClickItem}/>
+      <div className="offcanvas-body">
+        <ListGroup
+          title={"Guilherme Seletti"}
+          subtitle={"Portifolio"}
+          selectedItem={selectedItem}
+          setSelectedItem={setSelectedItem}
+          items={routeNames}
+          handleClickItem={handleClickItem}
+        />
         {/* <p>Place offcanvas content here.</p> */}
       </div>
     </div>

@@ -3,12 +3,11 @@
 import Offcanvas from "./Offcanvas";
 import { useState } from "react";
 
-function Navbar({allRoutes}) {
+function Navbar({ allRoutes }) {
   const [isMenuVisible, setMenuVisible] = useState(false);
 
   function toggleMenu() {
     setMenuVisible(!isMenuVisible);
-    console.log(isMenuVisible); // TO DO: remove console.log
   }
 
   return (
@@ -33,26 +32,28 @@ function Navbar({allRoutes}) {
             d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
           />
         </svg>
-        
+
         <div className=" me-auto mb-2 mb-lg-0">
           <span class="navbar-brand" style={{ color: "white" }}>
             Guilherme Seletti
           </span>
           <span className="navbar-text">Portfolio</span>
         </div>
-        <div class="form-check form-switch d-flex">
+        <div className="form-check form-switch d-flex">
           <input
             class="form-check-input me-2"
             type="checkbox"
             id="flexSwitchCheckDefault"
-            style={{margin: "auto"}}
+            style={{ margin: "auto" }}
           />
-          <span class="navbar-text me-2" style={{ color: "white" }}>
+          <span className="navbar-text me-2" style={{ color: "white" }}>
             Connect Wallet
           </span>
         </div>
       </div>
-      {isMenuVisible && <Offcanvas toggleMenu={toggleMenu} allRoutes={allRoutes}/>}
+      {isMenuVisible && (
+        <Offcanvas toggleMenu={toggleMenu} allRoutes={allRoutes} />
+      )}
     </nav>
   );
 }

@@ -1,37 +1,35 @@
 import { useState } from "react";
-import "../Style.css"
+import "../Style.css";
 
-
-function ListGroup({title, subtitle, items, handleClickItem}) {
-
-  //   const handleClick = (event) => console.log(event);
-  const [selectedIndex, setSelectedIndex] = useState(-1);
-
-  // function handleClick(item){
-  //   setSelectedIndex(item);
-  //   console.log(item);
-  // }
-
+function ListGroup({
+  title,
+  subtitle,
+  selectedItem,
+  setSelectedItem,
+  items,
+  handleClickItem,
+}) {
   return (
     <>
       <h1>{title}</h1>
       <h5>{subtitle}</h5>
-      <ul className="list-group" >
-        {items.map((item, index) => (
+      <ul className="list-group">
+        {items.map((item) => (
           <li
             className={
-              selectedIndex === index
-                ? "list-group-item active"
-                : "list-group-item"
-            }            
+              selectedItem === item
+                ? "list-group-item active list-group-item-secondary"
+                : "list-group-item list-group-item-action list-group-item-secondary"
+            }
             key={item}
-            onClick={() => { handleClickItem(item); }}
-            // onClick={() => handleClick(item)}
+            onClick={() => {
+              handleClickItem(item);
+              setSelectedItem(item);
+            }}
           >
             {item}
           </li>
         ))}
-        {/* <button onClick={handleClick}></button> */}
       </ul>
     </>
   );
