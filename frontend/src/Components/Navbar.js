@@ -1,10 +1,6 @@
-// import "../App.css";
-
 import Offcanvas from "./Offcanvas";
-import { useEffect } from "react";
 
 function Navbar({ allRoutes, isMenuVisible, setMenuVisible }) {
-  //const [isMenuVisible, setMenuVisible] = useState(false);
 
   function toggleMenu() {
     setMenuVisible(!isMenuVisible);

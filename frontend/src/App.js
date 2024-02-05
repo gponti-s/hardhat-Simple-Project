@@ -6,12 +6,17 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
 import { AboutPage } from "./pages/AboutPage";
 import { ArticlesPage } from "./pages/ArticlesPage";
+import { ContactPage } from "./pages/ContactPage";
+import { ProjectPage } from "./pages/ProjectPage"
 
 
 function App() {
   const allRoutes = [
     { name: 'About', path: '/', element: <AboutPage /> },
     { name: 'Articles', path: '/articles', element: <ArticlesPage /> },
+    { name: 'Contact', path: '/contact', element: <ContactPage />  },
+    { name: 'Project', path: '/project', element: <ProjectPage /> }
+
   ];
   const [isMenuVisible, setMenuVisible] = useState(false);
 

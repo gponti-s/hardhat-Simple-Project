@@ -38,14 +38,14 @@ function Offcanvas({ toggleMenu, allRoutes }) {
     toggleMenu();
     setSelectedItem(item);
   }
-
+  
   return (
     <div
-      className="offcanvas offcanvas-start show text-bg-dark"
-      tabindex="-1"
-      id="offcanvasDark"
-      aria-labelledby="offcanvasDarkLabel"
-      ref={menuRef}
+    className="offcanvas offcanvas-start show text-bg-dark"
+    tabindex="-1"
+    id="offcanvasDark"
+    aria-labelledby="offcanvasDarkLabel"
+    ref={menuRef}
     >
       <div className="offcanvas-header">
         <button
