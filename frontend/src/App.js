@@ -14,8 +14,8 @@ function App() {
   const allRoutes = [
     { name: 'About', path: '/', element: <AboutPage /> },
     { name: 'Articles', path: '/articles', element: <ArticlesPage /> },
-    { name: 'Contact', path: '/contact', element: <ContactPage />  },
-    { name: 'Project', path: '/project', element: <ProjectPage /> }
+    { name: 'Project', path: '/project', element: <ProjectPage /> },
+    { name: 'Contact', path: '/contact', element: <ContactPage />  }
 
   ];
   const [isMenuVisible, setMenuVisible] = useState(false);
@@ -27,7 +27,7 @@ function App() {
         <Navbar allRoutes={allRoutes} isMenuVisible={isMenuVisible} setMenuVisible={setMenuVisible}/>
         </div>
         <div className={isMenuVisible === false ? "content-container bg-body" : "content-container bg-dark bg-opacity-50"}
-        style={{padding:"70px",  height:"100vh"} }>
+        style={{padding:"100px",  height:"100vh"} }>
         <AllRoutes
         allRoutes={allRoutes}
         />
