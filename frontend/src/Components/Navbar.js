@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Offcanvas from "./Offcanvas";
 
 function Navbar({ allRoutes, isMenuVisible, setMenuVisible }) {
+  let [isWalletConnectedSwitch, setWalletConnectedSwitch] = useState(false); //TO DO: get this state from ether
 
   function toggleMenu() {
     setMenuVisible(!isMenuVisible);
@@ -30,20 +32,23 @@ function Navbar({ allRoutes, isMenuVisible, setMenuVisible }) {
         </svg>
 
         <div className=" me-auto mb-2 mb-lg-0">
-          <span class="navbar-brand" style={{ color: "white" }}>
+          <span className="navbar-brand" style={{ color: "white" }}>
             Guilherme Seletti
           </span>
           <span className="navbar-text">Portfolio</span>
         </div>
         <div className="form-check form-switch d-flex">
           <input
-            class="form-check-input me-2"
+            className="form-check-input me-2"
             type="checkbox"
             id="flexSwitchCheckDefault"
             style={{ margin: "auto" }}
+            onClick={() => {
+              console.log("Checkbox clicked");
+              setWalletConnectedSwitch(!isWalletConnectedSwitch);
+            }}
           />
-          <span className="navbar-text me-2" style={{ color: "white" }}>
-            Connect Wallet
+          <span className="navbar-text me-2" style={{ color: "white" }}>{isWalletConnectedSwitch ? "Wallet Connected" : "Connect Wallet"}
           </span>
         </div>
       </div>
